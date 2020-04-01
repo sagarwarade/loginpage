@@ -1,0 +1,26 @@
+<!-- <mat-form-field class="text-area">
+    <mat-label>Leave a comment</mat-label>
+    <textarea matInput placeholder="Ex. It makes me feel..." id="textarea"></textarea>
+  </mat-form-field>
+{{textarea}} -->
+<div class="container">
+   
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Insert Text</label>
+          <textarea class="form-control text-area" id="textInput" rows="3" restrictCopy></textarea>
+    <br>
+    <br>
+          <a mat-flat-button class="button" routerLink ="/home">Back</a>
+          <button (click)=" onFormSubmit()"  mat-flat-button class="button-primary" > Save</button>
+        </div>
+    
+  
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Text displayed</label>
+        <textarea class="form-control text-area" id="textOutput" rows="3">{{this.textInput}}</textarea>
+    </div>
+
+ 
+    
+ 

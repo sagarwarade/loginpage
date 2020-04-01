@@ -1,0 +1,44 @@
+<div class="container">
+
+        <h2 style="text-align: center;">Login</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()" >
+                <div class="form-row">
+                <div class="form-group col-md-12">
+                        <label>Mobile Number</label>
+                        <input type="text" formControlName="MobileNumber" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.MobileNumber.errors }" />
+                        <div *ngIf="submitted && f.MobileNumber.errors" class="invalid-feedback">
+                                <div *ngIf="f.MobileNumber.errors.required">mobile No is required</div>
+                                <div *ngIf="f.MobileNumber.errors.pattern">mobile No must be in numeric</div>
+                                <div *ngIf="f.MobileNumber.errors.maxlength">mobile No should not greater than 10 Digit
+                                </div>
+                                <div *ngIf="f.MobileNumber.errors.minlength">mobile No should be 10 Digit</div>
+
+                        </div>
+                </div>
+        </div>
+                <div class="form-row">
+                <div class="form-group col-md-12">
+                        <label>PIN</label>
+                        <input type="text" formControlName="PIN" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.PIN.errors }" />
+                        <div *ngIf="submitted && f.PIN.errors" class="invalid-feedback">
+                                <div *ngIf="f.PIN.errors.required">PIN is required</div>
+                                <div *ngIf="f.PIN.errors.pattern">PIN must be in numeric</div>
+                                <div *ngIf="f.PIN.errors.maxlength">PIN should not greater than 6 Digit</div>
+                                <div *ngIf="f.PIN.errors.minlength">PIN should be 6 Digit</div>
+
+                        </div>
+                </div>
+                <a mat-flat-button class="button" routerLink ="/home">Back</a>
+                <button  mat-flat-button class="button-primary" > Login</button>
+        </div>
+                <div class="form-row">
+                <div class="form-group form-check">
+                        <input type="checkbox" class="formCheckbox" id="RememberMe">
+                        <label class="formCheckbox" for="RememberMe">Remember me</label>
+                        <a class="links"  style="text-decoration: underline;" [routerLink]="'/forgotPIN'">Forgot your PIN?</a>
+                </div>
+        </div>
+        </form>
+</div>

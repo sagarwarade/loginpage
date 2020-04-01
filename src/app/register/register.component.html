@@ -1,0 +1,95 @@
+<div class="container">
+
+<h2 style="text-align: center;">Registration</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()">
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label>First Name</label>
+                <input type="text" formControlName="Fname" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.Fname.errors }" />
+                <div *ngIf="submitted && f.Fname.errors" class="invalid-feedback">
+                    <div *ngIf="f.Fname.errors.required">First name is required</div>
+                    <div *ngIf="f.Fname.errors.pattern">First name must be in alphabet</div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label>Last Name</label>
+
+                <input type="text" formControlName="Lname" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.Lname.errors }" />
+                <div *ngIf="submitted && f.Lname.errors" class="invalid-feedback">
+                    <div *ngIf="f.Lname.errors.required">Last name is required</div>
+                    <div *ngIf="f.Lname.errors.pattern">Last name must be in alphabet</div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-9">
+                <label>Mobile Number</label>
+                <input type="text" formControlName="MobileNumber" class="form-control" 
+                    [ngClass]="{ 'is-invalid': submitted && f.MobileNumber.errors }"   >
+                <div *ngIf="submitted && f.MobileNumber.errors" class="invalid-feedback">
+                    <div *ngIf="f.MobileNumber.errors.required">mobile No is required</div>
+                    <div *ngIf="f.MobileNumber.errors.pattern">mobile No must be in numeric</div>
+                    <div *ngIf="f.MobileNumber.errors.maxlength">mobile No should not greater than 10 Digit
+                    </div>
+                    <div *ngIf="f.MobileNumber.errors.minlength">mobile No should be 10 Digit</div>
+
+                </div>
+            </div>
+            <button type="button" mat-flat-button class="button-verify" (click)="onButtonClick()" style="margin-top: 29px;">{{button}} </button>
+        </div>
+        <div class="hide" id="otptext">
+                <div class="form-row ">
+                <div class="form-group col-md-9" >
+                    <label>Enter OTP</label>
+                    <input type="text" formControlName="OTP" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.OTP.errors }">
+                    <div *ngIf="submitted && f.OTP.errors" class="invalid-feedback">
+                        <div *ngIf="f.OTP.errors.required">OTP is required</div>
+    
+                    </div>
+                   
+                </div>
+                <a class="links"  style="text-decoration: underline;" [routerLink]="">Resend</a>
+            </div>
+        
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                    <label>PIN</label>
+                    <input type="text" formControlName="PIN" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.PIN.errors }" />
+                    <div *ngIf="submitted && f.PIN.errors" class="invalid-feedback">
+                            <div *ngIf="f.PIN.errors.required">PIN is required</div>
+                            <div *ngIf="f.PIN.errors.pattern">PIN must be in numeric</div>
+                            <div *ngIf="f.PIN.errors.maxlength">PIN should not greater than 6 Digit</div>
+                            <div *ngIf="f.PIN.errors.minlength">PIN should be 6 Digit</div>
+
+                    </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label> Confirm PIN</label>
+                <input type="text" formControlName="PIN" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.PIN.errors }" />
+                <div *ngIf="submitted && f.PIN.errors" class="invalid-feedback">
+                        <div *ngIf="f.PIN.errors.required">PIN is required</div>
+                        <div *ngIf="f.PIN.errors.mustMatch">PIN is required</div>
+
+                </div>
+        </div>
+    </div>
+        </div>
+
+            <a mat-flat-button class="button" routerLink ="/home">Back</a>
+            <button mat-flat-button class="button-primary">Submit</button>
+
+
+    </form>
+</div>
+
